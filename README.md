@@ -18,7 +18,9 @@ A local web application that converts Markdown text into Google Docs-compatible 
 - **File Upload** — Load `.md` files directly into the editor
 - **HTML Source View** — Toggle to see the raw HTML being generated
 - **Keyboard Shortcuts** — `Ctrl+Shift+C` to copy to clipboard
-- **Dark Theme Editor** — Easy on the eyes with a modern dark UI
+- **Dark Theme Editor** — Hytale-docs-inspired UI with dark navy header, teal accents, and clean white preview
+- **No-Terminal Launch** — Double-click `Start MD Converter.vbs` to launch without opening a console window
+- **In-Browser Shutdown** — Stop the server directly from the UI with the ⏹ Stop button
 
 ## Requirements
 
@@ -54,33 +56,43 @@ A local web application that converts Markdown text into Google Docs-compatible 
 
 5. **Open your browser** to [http://localhost:5000](http://localhost:5000) (opens automatically).
 
+### Quick Start (No Terminal)
+
+After initial setup, just **double-click `Start MD Converter.vbs`** in the project folder. It launches the server in the background (no console window) and opens your browser automatically.
+
 ## Usage
 
 1. **Type or paste Markdown** in the left editor pane
 2. **Preview** appears in real-time on the right pane
-3. Click **"Copy to Clipboard"** (or press `Ctrl+Shift+C`)
+3. Click **"📋 Copy to Clipboard"** (or press `Ctrl+Shift+C`)
 4. Switch to **Google Docs** and press `Ctrl+V` to paste with formatting
+
+### Shutting Down
+
+- **From the UI**: Click the **⏹ Stop** button in the top-right corner of the toolbar
+- **From the terminal**: Press `Ctrl+C` in the terminal running the server
 
 ## Project Structure
 
 ```
 MD Conversion/
-├── app.py                  # Flask application entry point
-├── requirements.txt        # Python dependencies
-├── README.md               # This file
+├── app.py                    # Flask application entry point
+├── requirements.txt          # Python dependencies
+├── README.md                 # This file
+├── Start MD Converter.vbs    # Double-click launcher (no console)
 ├── converter/
-│   ├── __init__.py         # Package exports
-│   ├── md_to_html.py       # Markdown → Google Docs HTML converter
-│   └── clipboard.py        # Windows CF_HTML clipboard handler
+│   ├── __init__.py           # Package exports
+│   ├── md_to_html.py         # Markdown → Google Docs HTML converter
+│   └── clipboard.py          # Windows CF_HTML clipboard handler
 ├── templates/
-│   └── index.html          # Web UI template
+│   └── index.html            # Web UI template (Hytale-inspired theme)
 ├── static/
 │   ├── css/
-│   │   └── style.css       # Application styles
+│   │   └── style.css         # Hytale-docs-inspired dark/light theme
 │   └── js/
-│       └── app.js          # Frontend JavaScript
+│       └── app.js            # Frontend JavaScript (preview, clipboard, shutdown)
 └── plans/
-    └── plan.md             # Architecture plan
+    └── plan.md               # Architecture plan
 ```
 
 ## How It Works
