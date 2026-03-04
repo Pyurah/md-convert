@@ -1,0 +1,4 @@
+flask>=3.0
+markdown2>=2.4
+beautifulsoup4>=4.12
+pywin32>=306

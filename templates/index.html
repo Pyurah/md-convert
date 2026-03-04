@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MD → Google Docs</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <!-- marked.js for client-side live preview -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+    <header class="toolbar">
+        <div class="toolbar-left">
+            <h1 class="app-title">
+                <span class="icon">⚡</span>
+                <span>MD</span>
+                <span class="accent">→</span>
+                <span>Docs</span>
+            </h1>
+        </div>
+        <div class="toolbar-center">
+            <button id="btn-copy" class="btn btn-primary" title="Convert and copy rich HTML to clipboard (Ctrl+Shift+C)">
+                📋 Copy to Clipboard
+            </button>
+            <button id="btn-clear" class="btn btn-secondary" title="Clear the editor">
+                Clear
+            </button>
+            <label class="btn btn-secondary file-upload-label" title="Load a .md file">
+                Open File
+                <input type="file" id="file-input" accept=".md,.markdown,.txt" hidden>
+            </label>
+        </div>
+        <div class="toolbar-right">
+            <span id="status" class="status-text">Ready</span>
+            <button id="btn-shutdown" class="btn btn-danger" title="Stop the server and close">
+                ⏹ Stop
+            </button>
+        </div>
+    </header>
+
+    <main class="editor-container">
+        <div class="pane pane-input">
+            <div class="pane-header">
+                <span class="pane-title">Markdown</span>
+                <span class="pane-hint">GFM supported</span>
+            </div>
+            <textarea
+                id="markdown-input"
+                class="editor-textarea"
+                placeholder="# Start typing Markdown here...
+
+Write your content and click **Copy to Clipboard**
+to paste formatted text into Google Docs.
+
+## Supported Syntax
+
+- **Bold**, *italic*, ~~strikethrough~~
+- Headings, lists, tables
+- Code blocks, blockquotes, links
+- Task lists with checkboxes
+"
+                spellcheck="false"
+                autofocus
+            ></textarea>
+        </div>
+
+        <div class="divider" id="divider"></div>
+
+        <div class="pane pane-preview">
+            <div class="pane-header">
+                <span class="pane-title">Preview</span>
+                <div class="preview-toggle">
+                    <button id="btn-preview-rich" class="toggle-btn active" title="Rich preview">Rich</button>
+                    <button id="btn-preview-html" class="toggle-btn" title="View raw HTML">HTML</button>
+                </div>
+            </div>
+            <div id="preview-rich" class="preview-content">
+                <div class="preview-placeholder">
+                    <p>Preview will appear here as you type…</p>
+                </div>
+            </div>
+            <pre id="preview-html" class="preview-html-source" hidden></pre>
+        </div>
+    </main>
+
+    <footer class="status-bar">
+        <span id="char-count">0 characters</span>
+        <span id="line-count">0 lines</span>
+        <span id="word-count">0 words</span>
+    </footer>
+
+    <!-- Toast notification -->
+    <div id="toast" class="toast" hidden>
+        <span id="toast-message"></span>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
