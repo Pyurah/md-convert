@@ -35,11 +35,11 @@ A local web application that converts Markdown text into Google Docs-compatible 
    cd "MD Conversion"
    ```
 
-2. **Create a virtual environment (recommended):**
+2. **Create a virtual environment:**
 
    ```bash
-   python -m venv venv
-   venv\Scripts\activate
+   python -m venv .venv
+   .venv\Scripts\activate
    ```
 
 3. **Install dependencies:**
@@ -91,6 +91,8 @@ MD Conversion/
 │   │   └── style.css         # Hytale-docs-inspired dark/light theme
 │   └── js/
 │       └── app.js            # Frontend JavaScript (preview, clipboard, shutdown)
+├── .vscode/
+│   └── launch.json           # VS Code debug configuration
 └── plans/
     └── plan.md               # Architecture plan
 ```
