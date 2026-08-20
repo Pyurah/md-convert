@@ -8,7 +8,7 @@ Set FSO = CreateObject("Scripting.FileSystemObject")
 scriptDir = FSO.GetParentFolderName(WScript.ScriptFullName)
 
 ' Build the path to the Python executable in the venv
-pythonExe = scriptDir & "\venv\Scripts\pythonw.exe"
+pythonExe = scriptDir & "\.venv\Scripts\pythonw.exe"
 appFile = scriptDir & "\app.py"
 
 ' Check if venv exists
